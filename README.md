@@ -13,7 +13,7 @@ The main file you want to check is `src/adventure/core.clj`.
 
 To run the program, use `lein run` from the command line.
 
-Tips: first use help to check all the commands you can use. There are several hidden commands.
+Tips: first use command `help` to check all the commands you can use. There are several hidden commands.
 
 You have to guess them and if you cannot get it you can check the code for an idea.
 
