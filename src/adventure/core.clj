@@ -4,7 +4,7 @@
   (:gen-class))
 
 (def the-map
-  {:bedroom1 {:desc "You suddenly wake up. Your head hurts, and you don't remember what happened last night. You found yourself on an unfamiliar comfortable soft bed. You want to know where you are. You might want to search first but you can also check around."
+  {:bedroom1 {:desc "It's a big bedroom. Your head hurts, and you don't remember what happened last night. You found yourself on an unfamiliar comfortable soft bed. You want to know where you are. You might want to search first but you can also check around."
               :title "in the bedroom"
               :dir {:south :hallway
                     :north :bathroom1}
@@ -99,7 +99,7 @@
    :inventory #{}
    :seen #{}})
 
-(def help "Useful Command:\n \n Directions:\n\n south/north/west/east/up/down/\n\n Actions:\n\n pick/search/look/eat/drink/read and some hidden actions\n\n Status:\n\n help/check/health \n\n Hint: All roads lead to Rome and the truth is always hidden.\n")
+(def help "Useful Command:\n \n Directions:\n\n south/north/west/east/up/down/\n\n Actions:\n\n pick/search/look/eat/drink/read/OUT and some hidden actions\n\n Status:\n\n help/check/health \n\n Hint: All roads lead to Rome and the truth is always hidden.\n")
 
 (defn health [player]
   (let [health (player :strength)]
@@ -153,7 +153,11 @@
     (if (empty? content)
       (do (print (str "There is nothing here. "))
           player)
-      (do (print (str "There is ")) (apply print content) (print (str " here. ")) player))))
+      (let [vect (into [] content)
+            stuff (nth vect 0)]
+      (if (contains? (player :inventory) stuff)
+        (do (print (str "There is nothing here. ")) player)
+        (do (print (str "There is ")) (apply print content) (print (str " here. ")) player))))))
 
 (defn readLetter [player]
   (let [thing (player :inventory)]
