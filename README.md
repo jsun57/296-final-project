@@ -25,4 +25,3 @@ the perfect ending.
 
 Copyright © 2016 JiaruiSun (with starter code from Mattox), free for personal and educational use.
 
-# 296-final-project
