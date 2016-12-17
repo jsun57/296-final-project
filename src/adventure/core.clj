@@ -15,7 +15,7 @@
                :dir {:south :bedroom1}
                :contents #{}}
 
-   :hallway {:desc "You are in a strangely long hallway. Lots of old pictures are on the wall."
+   :hallway {:desc "You are in a strangely long hallway. Lots of old pictures are on the wall. You know this place is special."
              :title "in the hallway"
              :dir {:north :bedroom1
                    :south :living-room
@@ -46,7 +46,7 @@
                        :north :kitchen}
                  :contents #{}}
 
-   :kitchen {:desc "You are in the kitchen. You can eat the food here if you want!"
+   :kitchen {:desc "You are in the kitchen. You can eat the food here if you want! By the way... Is something hidden besides the stove?"
              :title "in the kitchen"
              :dir {:north :garage
                    :south :dining-room
