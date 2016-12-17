@@ -263,7 +263,6 @@
           player)))
 
 (defn -main
-  "I don't do a whole lot ... yet."
   [& args]
   (loop [local-map the-map
          local-player adventurer]
