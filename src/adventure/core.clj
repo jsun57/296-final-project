@@ -94,7 +94,7 @@
 
 (def adventurer
   {:location :bedroom1
-   :name ""
+   :name "Jiacheng He"
    :strength 50
    :inventory #{}
    :seen #{}})
@@ -242,7 +242,7 @@
 (defn respond [player command]
   (match command
     [:health] (health player)
-    [:OUT] (OUT player)
+    [(:or :out :OUT)] (OUT player)
     [:break] (break player)
     [:talk] (talk player)
     [:help] (do (println help) player)
@@ -253,12 +253,12 @@
     [:pick] (pick player)
     [:search] (search player)
     [:look] (update-in player [:seen] #(disj % (-> player :location)))
-    [:north] (go :north player)
-    [:south] (go :south player)
-    [:west] (go :west player)
-    [:east] (go :east player)
-    [:up] (go :up player)
-    [:down] (down player)
+    [(:or :n :north)] (go :north player)
+    [(:or :s :south)] (go :south player)
+    [(:or :w :west)] (go :west player)
+    [(:or :e :east)] (go :east player)
+    [(:or :u :up)] (go :up player)
+    [(:or :d :down)] (down player)
     _ (do (println "I don't understand you.")
           player)))
 
